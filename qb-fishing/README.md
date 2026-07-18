@@ -122,24 +122,4 @@ reskin (colors, fonts, position) in `html/style.css` without touching any Lua.
   extend later (e.g. multiple rod items each with their own `Config.CatchTime` or catch table)
   if you ever want to add that.
 
-## What's new since v1
-
-- **Server-side cooldowns** (`Config.ServerCooldowns`): a hard per-player floor on how often the
-  `catchFish`/`sellFish` events can fire, independent of the UI timing, so a modified client can't
-  spam them.
-- **Vehicle/swimming checks**: fishing is blocked in a vehicle or while swimming, checked both
-  client-side (instant feedback) and server-side (can't be bypassed).
-- **Bite-fail chance** (`Config.BiteFailChance`): a % chance the line snaps right at the end of a
-  full bar, before the catch roll even happens — so waiting out the bar isn't a 100% guaranteed
-  catch.
-- **Fish weight variance** (`weightRange` per fish in `Config.Fish`): each catch gets a randomized
-  weight stamped into its `ox_inventory` metadata, shown in the item label (e.g. "Trout (1.2kg)").
-- **Mid-cast "something's biting!" cue**: partway through the wait, the UI pulses and the label
-  changes, with a small synthesized sound cue (Web Audio API — no sound files needed).
-- **Sound cues on result** (`Config.Sound` to toggle): distinct tones for a real catch, junk, and
-  a failed/snapped line.
-- **Inventory-heavy nudge** (`Config.MaxFishWarning`): a friendly notify once your on-hand sellable
-  fish count crosses a threshold, so you know to go sell rather than hitting a hard inventory-full
-  wall.
-- **Discord webhook logging** (`Config.Webhook`, `isRare` flag per fish): posts an embed when a
-  fish flagged `isRare` (e.g. Shark) is caught. Leave `Config.Webhook = ''` to disable.
+t. Leave `Config.Webhook = ''` to disable.
